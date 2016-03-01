@@ -51,6 +51,13 @@ module Yourub
       Yourub::Result.format(request).first
     end
 
+    # return a hash containing the status of a given video
+    def status(video_id)
+      params = {:id => video_id, :part => 'status'}
+      request = Yourub::REST::Videos.list(self,params)
+      Yourub::Result.format(request).first
+    end
+
 private
 
     def search_by_criteria
